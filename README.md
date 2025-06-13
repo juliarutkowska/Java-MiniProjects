@@ -1,75 +1,68 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/M-iDsyHq)
-# Zadania laboratoryjne: klasy, konstruktory, metody i testy
+## Java OOP Logic Suite – Core Programming Exercises
 
-| Termin oddania   | Punkty |
-| ------------ | ------------ |
-| 27.04.2025  23:00 | 15 |
+This is a collection of simple Java class-based programs built during coursework at the Polish-Japanese Academy of Information Technology (PJATK). The project demonstrates core object-oriented programming (OOP) concepts, clean code practices, and unit testing using JUnit.
 
---- 
-Przekroczenie terminu o **n** zajęć wiąże się z karą:
-- punkty uzyskania za realizację zadania są dzielone przez **2<sup>n</sup>**.
+---
 
---- 
+### 🚀 Features
 
+* Card comparison system using enums and logical rules
+* Student grading logic based on attendance percentage
+* Custom date class with format validation and display
+* Clock class simulating ticking and time management
+* Basic statistical calculations on numeric sets
+* Invoice (faktura) value calculation with validation
 
-## Zadanie 1 (1 punkt)
+---
 
-Zaimplementuj klasę `model.Card` reprezentującą pojedynczą kartę do gry z talii kart. 
-Klasa powinna przechowywać `wartość` i `kolor`: kier, karo, pik, trefl. W zadaniu użyj typu wyliczeniowego.
-Klasa powinna posiadać odpowiednie konstruktory, settery, getery oraz metodę roztrzygającą czy dana karta przebija drugą.
+### 🛠️ Technologies
 
-Napisz program testujący (testy jednostkowe), który stworzy trzy różne obiekty klasy `model.Card` i sprawdzi poprawność działania metod.
+* Java (standard libraries only)
+* JUnit 5 (unit testing)
+* Clean Code & SOLID principles
 
-## Zadanie 2 (2 punkty)
+---
 
-Zaimplementuj klasę `Student`, do przechowywania `imienia`, `nazwiska`, `numer indeksu` i `obecność` (wyrażonej w procentach) `oceny z POJ` (typu int).
-Jeżeli podczas tworzenia obiektu nie zostało przekazane imię i nazwisko, pola powinny być ustawione wartością "Unknown".
-Dodaj odpowiednie metody set i get do wszystkich pól klasy. Jeżeli obecnocność jest mniejsza niż 50%, student powinien otrzymać ocenę 2. 
-Przetestuj program, tworząc trzy różne obiekty klasy `Student`.
+### 📁 Structure
 
-## Zadanie 3 (3 punkty)
+```
+model/
+│
+├── Card.java        – defines a playing card and comparison logic
+├── Student.java     – stores student info and calculates final grade
+├── MyDate.java      – validates and displays date in dd/MM/yyyy format
+├── Clock.java       – simulates digital clock with ticking and formatting
+├── Numbers.java     – performs statistical analysis (sum, avg, min, max)
+├── Invoice.java     – represents a product invoice and total calculation
+```
 
-Zaimplementuj klasę `MyDate`, która przechowuje informację: `month` (typu int), `day`(typu int) i `year` (type int).
-Klasa powinna zawierać konstruktor, który inicjalizuje zmienne, sprawdzając poprawność zakresów (day 0-31, month 0-12, year 1990-2050).
-Zaimplementuj methody set i get dla wszystkich pól. 
-Dodaj metodę `displayDate`, która wyświetli pola z uwzględnieniem zer nieznaczących oddzielone znakiem "/", np `21/03/2051`.
-Przetestuj zaimplementowaną klasę.
+```
+test/
+│
+├── CardTest.java    – unit tests for card comparisons
+├── StudentTest.java – unit tests for student logic
+├── MyDateTest.java  – unit tests for date validation and display
+├── ClockTest.java   – unit tests for time logic
+├── NumbersTest.java – unit tests for math operations
+├── InvoiceTest.java – unit tests for invoice calculations
+```
 
-## Zadanie 4 (3 punkty)
+---
 
-Zaimplementuj klasę `Clock`. Klasa zawierać będzie pola: `hours, minutes, seconds`. Zmienna `hours` przyjmuje wartości z zakresu 0-23, `minutes` z zakresu 0-59, `seconds` 0-59.
-Dodaj trzy konstruktor:
-- domyślny - inicjalizuje godzinę 12:00:00;
-- konstruktor zawierający trzy parametry: hours, minutes, seconds,
-- konstruktor z jednym parametrem - czas w sekundach licząc od północy jest konwertowany do pól: `hours, minutes, seconds`.
-Dodaj metody:
-- `getHours(), getMinutes(), getSeconds()`, bez parametrów, które zwracają odpowiednie wartości;
-- `setHours(), setMinutes(), setSeconds()`, z jednym parametrem, który ustawia odpowiednie wartości;
-- `tick()`, bez parametrów, która inkrementuje wartość second o jeden. Przykład: wartość 00:00:01 zamieni się na 00:00:02; wartość 00:59:59 zmieni się na 01:00:00;
-- `tickDown()`, zmniejsza wartość sekund o jedno; analogiczna do tick();
-- `toString()`, bez parametrów, zwraca reprezentację obiektu w postaci **"[hh-mm-ss]"**, uzupełnioną o nieznaczące zera, na przykład: **"[03:12:56]"**. 
-Przetestuj zaimplementowany program. 
+### 🎓 Context
 
-##  Zadanie 5 (3 punkty)
+This project was created as part of **first-year Java programming (POJ)** coursework at PJATK Gdańsk. Each class demonstrates principles of encapsulation, responsibility segregation, and logic isolation using unit tests for verification.
 
-Zaimplementuj klasę `Numbers`. Dodaj konstruktor który przyjmuje trzy liczby typu `int`. Dodaj metody:
-- `sum()`, zwraca sumę liczb;
-- `average()`, zwraca średnią arytmetyczną liczb;
-- `min()`, zwraca najmniejszą z liczb;
-- `max()`, zwraca największą z liczb;
-- `geometric()`, zwraca średnią geometryczną liczb;
-Przetestuj zaimplementowany program.
+---
 
-## Zadanie 6 (3 punkty)
+### 📸 Preview (Example: Clock Class Output)
 
-Zaimplementuj klasę `Invoice` reprezentującą fakturę dla sklepu. Klasa przechowuje następujące informacje: 
-`product_number (typ String)`, `prodcut_description` (typ String), `quantity`(typ int) i` `pricePerItem`(typ double).
- Klasa powinna mieć konstruktor, który umożliwi podanie wszystkich 4 parametrów. Zaimplementuj metody set i get dla każdej zmiennej. 
-Dodaj metodę:
-- `Amount`, które zwraca iloczyn `quantity` i `pricePerItem`. Jeżeli `pricePerItem` nie jest dodatnia, `Amount` powinien zwrócić 0. 
-Jeżeli `quantity` nie jest dodatnie, `Amount` powinna zwrócić 0.
-Przetestuj zaimplementowaną klasę.
-
-## UWAGA:
-- powyższych zadaniach stosować zasady Clean Code i [SOLID](https://www.samouczekprogramisty.pl/solid-czyli-dobre-praktyki-w-programowaniu-obiektowym/)
-- dla implementowanej funkcjonalności przygotuj testy jednostkowe.
+```
+Initial time: [12:00:00]
+tick()
+→ [12:00:01]
+tickDown()
+→ [12:00:00]
+tickDown()
+→ [11:59:59]
+```
